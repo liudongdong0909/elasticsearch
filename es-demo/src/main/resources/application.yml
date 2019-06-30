@@ -1,0 +1,54 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: es-demo
+  data:
+    elasticsearch:
+      cluster-nodes: 172.16.29.183:9300,172.16.29.183:9301,172.16.29.183:9302
+      repositories:
+        enabled: true
+      cluster-name: elasticsearch-cluster
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url:
+    username:
+    password: 
+    # Hikari will use the above plus the following to setup connection pooling
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+# mybatis
+mybatis:
+  mapper-locations: classpath:com.es.demo.mapper/*.xml
+  type-aliases-package: com.es.demo.model.elastic
+  configuration:
+    map-underscore-to-camel-case: true
+
+# tkmapper
+mapper:
+  mappers:
+    - tk.mybatis.mapper.common.Mapper
+  identity: MYSQL
+#  style: normal
+
+# pageHelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  row-bounds-with-count: true
+  support-methods-arguments: true
+
+logging:
+  level:
+    root: info
+    com.es.demo.mapper: debug
+  file: logs/${spring.application.name}.log
