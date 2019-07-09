@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.es.demo.mapper.RiskDeviceAppInfoMapper">
+
+    <select id="queryAppInfoByOrderNumAndDeviceId" resultType="java.lang.String">
+       SELECT
+          app_name
+        FROM
+          risk_device_app_info
+        where order_Num = #{orderNum} AND device_id = #{deviceId}
+    </select>
+</mapper>

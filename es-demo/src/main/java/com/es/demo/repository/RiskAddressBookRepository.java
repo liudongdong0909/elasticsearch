@@ -1,12 +1,15 @@
 package com.es.demo.repository;
 
-import com.es.demo.model.elastic.AddressBook;
-import org.springframework.data.elasticsearch.repository.ElasticsearchCrudRepository;
+
+import com.es.demo.model.elastic.RiskAddressBook;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 /**
+ * 通讯录
  * @author walle
- * @version 1.0
- * @create 2019-06-25
  */
-public interface RiskAddressBookRepository extends ElasticsearchCrudRepository<AddressBook, Long> {
+public interface RiskAddressBookRepository extends ElasticsearchRepository<RiskAddressBook, Long> {
+
+
+
 }

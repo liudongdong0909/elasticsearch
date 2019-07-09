@@ -7,32 +7,24 @@ import java.util.Date;
 /**
  * @author walle
  * @version 1.0
- * @create 2019-06-30
+ * @create 2019-07-09
  */
-@Table(name = "risk_address_book")
-public class RiskAddressBook {
+@Table(name = "risk_call_record")
+public class RiskCallRecord {
 
-    /**
-     * 主键ID
-     */
     @Id
     private Long id;
-    /**
-     * 订单编号
-     */
-    private  Long orderNum;
-    /**
-     * 姓名
-     */
-    private String  name;
-    /**
-     * 电话
-     */
-    private String  phone;
 
-    /**
-     * 创建时间
-     */
+    private Long orderNum;
+
+    private String phone;
+
+    private Date callTime;
+
+    private Long duration;
+
+    private Long type;
+
     private Date createTime;
 
     public Long getId() {
@@ -51,20 +43,36 @@ public class RiskAddressBook {
         this.orderNum = orderNum;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Date getCallTime() {
+        return callTime;
+    }
+
+    public void setCallTime(Date callTime) {
+        this.callTime = callTime;
+    }
+
+    public Long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Long duration) {
+        this.duration = duration;
+    }
+
+    public Long getType() {
+        return type;
+    }
+
+    public void setType(Long type) {
+        this.type = type;
     }
 
     public Date getCreateTime() {

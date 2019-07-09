@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.es.demo.mapper.RiskDeviceInfoMapper">
+
+    <select id="queryPageList" resultType="com.es.demo.model.mybatis.RiskDeviceInfo">
+       SELECT
+         id,
+         order_num,
+         imi_id,
+         ip,
+         altitude,
+         longitude,
+         create_time,
+         battery,
+         phone_model,
+         gps_address
+        FROM
+          risk_device_info
+        LIMIT #{page}, #{pageSize}
+    </select>
+</mapper>

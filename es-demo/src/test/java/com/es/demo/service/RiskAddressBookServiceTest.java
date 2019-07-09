@@ -1,17 +1,14 @@
 package com.es.demo.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.es.demo.EsDemoApplicationTests;
-import com.es.demo.model.elastic.AddressBook;
-import com.es.demo.model.elastic.User;
+import com.es.demo.mapper.RiskMessageMapper;
+import com.es.demo.model.mybatis.RiskMessage;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
-import org.springframework.data.elasticsearch.core.query.IndexQuery;
-import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
 /**
  * @author walle
@@ -20,38 +17,21 @@ import java.util.Date;
  */
 public class RiskAddressBookServiceTest extends EsDemoApplicationTests {
 
-    @Autowired
-    private RiskAddressBookService addressBookService;
 
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
 
     @Autowired
-    private RiskAddressBookService riskAddressBookService;
+    private RiskMessageMapper riskMessageMapper;
 
     @Test
-    public void save() {
-        AddressBook addressBook = AddressBook.builder()
-                .orderNo(32222L)
-                .name("test24444")
-                .belongingTo("+91")
-                .phone("123456677")
-                .createTime(new Date())
-                .build();
-        addressBookService.save(addressBook);
-    }
-
-    @Test
-    public void save2(){
-
-        IndexQuery indexQuery = new IndexQueryBuilder()
-                .withObject(new User().setAge(18)
-                        .setHobby("演戏")
-                        .setName("张敏")
-                        .setBirthday(LocalDate.of(1990, 10,01))
-                        .setCreateTime(LocalDateTime.now()))
-                .build();
-        elasticsearchTemplate.index(indexQuery);
+    public void test(){
+        RiskMessage riskMessage = new RiskMessage();
+        riskMessage.setOrderNum(569889824601800704l);
+        List<RiskMessage> riskMessageList = riskMessageMapper.queryPageList(1, 3);
+        riskMessageList.forEach(riskMessage1 -> {
+            System.out.println(JSONObject.toJSONString(riskMessage1));
+        });
     }
 
 }

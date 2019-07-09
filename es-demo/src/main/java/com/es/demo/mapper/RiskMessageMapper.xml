@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.es.demo.mapper.RiskMessageMapper">
+
+    <select id="queryPageList" resultType="com.es.demo.model.mybatis.RiskMessage">
+       SELECT
+         id,
+         order_num,
+         send_time,
+         `type`,
+         address,
+         body,
+         `read`,
+         create_time
+        FROM
+         risk_message
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+</mapper>
