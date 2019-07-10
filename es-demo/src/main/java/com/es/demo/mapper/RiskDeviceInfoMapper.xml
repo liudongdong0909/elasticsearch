@@ -11,6 +11,7 @@
          altitude,
          longitude,
          create_time,
+         update_time,
          battery,
          phone_model,
          gps_address

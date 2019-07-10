@@ -24,15 +24,18 @@ public class MySql2ElasticController {
         dataTransferService.startRiskMessage(startDate, pageSize);
     }
 
-    public void startRiskDevieInfo(Date startDate, Integer pageSize) {
-
+    @RequestMapping("/device")
+    public void startRiskDeviceInfo(Date startDate, Integer pageSize) {
+        dataTransferService.startRiskDeviceInfo(startDate, pageSize);
     }
 
+    @RequestMapping("/addressBook")
     public void startRiskAddressBook(Date startDate, Integer pageSize) {
-
+        dataTransferService.startRiskAddressBook(startDate, pageSize);
     }
 
+    @RequestMapping("/callRecord")
     public void startRiskCallRecord(Date startDate, Integer pageSize) {
-
+        dataTransferService.startRiskCallRecord(startDate, pageSize);
     }
 }

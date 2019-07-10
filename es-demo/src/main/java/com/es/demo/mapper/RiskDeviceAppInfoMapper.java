@@ -13,7 +13,6 @@ import java.util.List;
  */
 public interface RiskDeviceAppInfoMapper extends Mapper<RiskDeviceAppInfo> {
 
-    List<String> queryAppInfoByOrderNumAndDeviceId(@Param("orderNum") Long orderNum,
-                                                   @Param("deviceId") Long deviceId);
+    List<String> queryAppInfoByDeviceId(@Param("deviceId") Long deviceId);
 
 }
