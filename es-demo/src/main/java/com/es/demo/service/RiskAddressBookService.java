@@ -47,9 +47,9 @@ public class RiskAddressBookService {
     @Autowired
     private RiskCallRecordService riskCallRecordService;
 
-    public static final int pageSize = 50000;
+    public static final int pageSize = 60000;
 
-    public void startRiskAddressBook(Date startDate, Integer pageSize) {
+    public void startRiskAddressBook(Date startDate, Integer pageSize2) {
         // 1. 获取数据库数据总数
         RiskAddressBook riskAddressBook = new RiskAddressBook();
         int selectCount = riskAddressBookMapper.selectCount(riskAddressBook);
@@ -63,7 +63,7 @@ public class RiskAddressBookService {
 
             if (i != 1) {
                 try {
-                    TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(4));
+                    TimeUnit.SECONDS.sleep(3);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
